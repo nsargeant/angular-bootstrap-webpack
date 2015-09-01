@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{%= o.htmlWebpackPlugin.options.title %}</title>
+	<base href="/">
+</head>
+<body ng-app="propertyManager">
+	<ui-view></ui-view>
+
+	{% if (o.webpackConfig.port) { %}
+		<script src="http://localhost:{%= o.webpackConfig.port %}/webpack-dev-server.js"></script>
+	{% } %}
+</body>
+</html>
