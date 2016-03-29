@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 var devConfig = Object.create(config)
 devConfig.watch = true
-devConfig.port = 3000;
+devConfig.port = 8080;
 devConfig.devtool= 'source-map';
 
 var compiler = webpack(devConfig);

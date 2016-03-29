@@ -1,6 +1,6 @@
 // vendor imports 
 import 'jquery'
-import 'bootstrap-webpack'
+import 'bootstrap-loader'
 
 // main module import
 import _module from 'module'
