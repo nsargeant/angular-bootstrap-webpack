@@ -1,5 +1,6 @@
 var webpack = require('webpack'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
+  ExtractTextPlugin = require("extract-text-webpack-plugin"),
   path = require('path'),
   appConfig = require('./app.config.js');
 
@@ -28,7 +29,7 @@ module.exports = {
 
       {
         test: /main\.scss$/,
-        loader: 'style!css!sass?outputStyle=expanded'
+        loader: ExtractTextPlugin.extract('style-loader','css-loader!sass-loader?outputStyle=expanded')
       },
 
       //Bootstrap support
@@ -72,8 +73,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: appConfig.name.replace(/\s/g, ''),
       template: 'index.html',
-      inject: true
+      inject: true,
+      filename: 'index.html'
     }),
+    new ExtractTextPlugin('[name].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js'
